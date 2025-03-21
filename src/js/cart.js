@@ -3,7 +3,8 @@ import { getLocalStorage } from "./utils.mjs";
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   if (!cartItems) {
-    document.querySelector(".product-list").innerHTML = `<li class="cart-card divider">
+    document.querySelector(".product-list").innerHTML =
+      `<li class="cart-card divider">
       <p class="empty-cart">Your cart is empty</p>
     </li>`;
     return;
