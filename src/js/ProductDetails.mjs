@@ -1,4 +1,4 @@
-import { setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   // Calculate discount based on SuggestedRetailPrice vs FinalPrice
@@ -59,7 +59,19 @@ export default class ProductDetails {
       .addEventListener("click", this.addToCart.bind(this));
   }
   addToCart() {
-    setLocalStorage("so-cart", this.product);
+    // Get current cart or initialize empty array if it doesn't exist
+    let cart = getLocalStorage("so-cart");
+    
+    // If cart doesn't exist or isn't an array, initialize it
+    if (!cart || !Array.isArray(cart)) {
+      cart = [];
+    }
+    
+    // Add the current product to the cart array
+    cart.push(this.product);
+    
+    // Save the updated cart back to localStorage
+    setLocalStorage("so-cart", cart);
   }
   renderProductDetails(selector) {
     const element = document.querySelector(selector);

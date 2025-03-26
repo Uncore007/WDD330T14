@@ -4,6 +4,8 @@ loadHeaderFooter();
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
+  console.log(cartItems);
+  console.log(cartItems.length);
   if (!cartItems) {
     document.querySelector(".product-list").innerHTML = `<li class="cart-card divider">
       <p class="empty-cart">Your cart is empty</p>
