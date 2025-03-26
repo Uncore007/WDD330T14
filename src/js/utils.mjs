@@ -82,3 +82,16 @@ export async function loadHeaderFooter() {
 
   renderWithTemplate(footerTemplate, footerElement);
 }
+
+export function updateCartCount() {
+  const cartItems = getLocalStorage("so-cart") || [];
+  const cartCount = Array.isArray(cartItems) ? cartItems.length : 0;
+  
+  // Find all cart count elements (some pages might have multiple instances)
+  const cartCountElements = document.querySelectorAll("#cart-count");
+  
+  // Update all instances of the cart count
+  cartCountElements.forEach(element => {
+    element.textContent = cartCount;
+  });
+}

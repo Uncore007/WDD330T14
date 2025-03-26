@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, updateCartCount } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   // Calculate discount based on SuggestedRetailPrice vs FinalPrice
@@ -72,6 +72,9 @@ export default class ProductDetails {
     
     // Save the updated cart back to localStorage
     setLocalStorage("so-cart", cart);
+    
+    // Update the cart count display
+    updateCartCount();
   }
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
