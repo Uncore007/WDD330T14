@@ -272,6 +272,38 @@ button {
 
 /* End of product discount styling */
 
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.category-card {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.category-card svg {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.category-card h3 {
+  margin: 0;
+}
+
 footer {
   font-size: var(--small-font);
   padding: 1em;
