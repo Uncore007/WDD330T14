@@ -43,6 +43,35 @@
       </div>
     </header>
     <main class="divider">
+      <div class="order-summary">
+        <h3>Summary</h3>
+        <div class="row">
+          <div class="col">
+            <p>Items: <span id="num-items"></span></p>
+          </div>
+          <div class="col">
+            <p>Subtotal: <span id="cartTotal"></span></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <p>Subtotal: <span id="subtotal"></span></p>
+          </div>
+          <div class="col">
+            <p>Tax: <span id="tax"></span></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>Shipping Estimate: <span id="shipping"></span></p>
+          </div>
+          <div class="col">
+            <p>Order Total: <span id="orderTotal"></span></p>
+          </div>
+        </div>
+      </div>
+
       <form class="checkout-form">
         <div class="row">
           <div class="form-group col">
@@ -90,36 +119,8 @@
             <input type="text" id="cvv" name="cvv" required />
           </div>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" id="checkoutSubmit">Submit</button>
       </form>
-
-      <div class="order-summary">
-        <h3>Summary</h3>
-        <div class="row">
-          <div class="col">
-            <p>Items: <span id="num-items"></span></p>
-          </div>
-          <div class="col">
-            <p>Subtotal: <span id="cartTotal"></span></p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <p>Subtotal: <span id="subtotal"></span></p>
-          </div>
-          <div class="col">
-            <p>Tax: <span id="tax"></span></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <p>Shipping Estimate: <span id="shipping"></span></p>
-          </div>
-          <div class="col">
-            <p>Order Total: <span id="orderTotal"></span></p>
-          </div>
-        </div>
     </main>
     <footer id="main-footer">&copy;NOT a real business</footer>
   </body>
