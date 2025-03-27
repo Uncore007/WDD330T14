@@ -28,11 +28,14 @@ function displayCartTotal(cartItems) {
   // Calculate the total price
   const total = cartItems.reduce((sum, item) => sum + parseFloat(item.FinalPrice), 0);
   
-  // Create HTML for the total
+  // Create HTML for the total and checkout button
   const totalHtml = `
     <div class="cart-total">
       <p class="cart-total__label">Total:</p>
       <p class="cart-total__amount">$${total.toFixed(2)}</p>
+    </div>
+    <div class="cart-footer">
+      <a href="../checkout/index.html" class="checkout-button">Checkout</a>
     </div>
   `;
   
