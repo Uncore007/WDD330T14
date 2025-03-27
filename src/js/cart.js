@@ -19,6 +19,26 @@ function renderCartContents() {
   
   const htmlItems = itemsArray.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  
+  // Add cart total
+  displayCartTotal(itemsArray);
+}
+
+function displayCartTotal(cartItems) {
+  // Calculate the total price
+  const total = cartItems.reduce((sum, item) => sum + parseFloat(item.FinalPrice), 0);
+  
+  // Create HTML for the total
+  const totalHtml = `
+    <div class="cart-total">
+      <p class="cart-total__label">Total:</p>
+      <p class="cart-total__amount">$${total.toFixed(2)}</p>
+    </div>
+  `;
+  
+  // Add the total after the product list
+  const productList = document.querySelector(".product-list");
+  productList.insertAdjacentHTML("afterend", totalHtml);
 }
 
 function cartItemTemplate(item) {
