@@ -99,8 +99,13 @@ export default class CheckoutProcess {
     try {
       const response = await services.checkout(order);
       console.log(response);
+      // Clear out the cart from localStorage
+      localStorage.removeItem("so-cart");
+      // Redirect to the success page
+      window.location.href = "success.html";
     } catch (err) {
-      console.log(err);
+      console.error("Checkout failed:", err);
+      alert("There was an issue with your checkout. Please try again.");
     }
   }
 }
