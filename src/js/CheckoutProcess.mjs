@@ -10,6 +10,7 @@ function formDataToJSON(formElement) {
   formData.forEach((value, key) => {
     convertedJSON[key] = value;
   });
+  console.log(convertedJSON);
   return convertedJSON;
 }
 
