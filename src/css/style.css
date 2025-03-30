@@ -390,3 +390,19 @@ footer {
   border: 1px solid #e2e2e2;
   border-radius: 5px;
 }
+
+/* Breadcrumb styles */
+.breadcrumb {
+  padding: 0.5em 1em;
+  background-color: var(--light-grey);
+  font-size: 0.85em;
+}
+
+.breadcrumb a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
