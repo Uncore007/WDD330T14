@@ -1,24 +1,3 @@
-// import ProductData from "./ProductData.mjs";
-// import ProductList from "./ProductList.mjs";
-// import { loadHeaderFooter, updateCartCount, getParam } from "./utils.mjs";
-
-// // Get the category from URL parameter
-// const category = getParam("category");
-// // Capitalize the first letter for display
-// const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
-// // Update the category title
-// document.querySelector(".category-title").textContent = categoryName;
-
-// const dataSource = new ProductData(category);
-// const element = document.querySelector(".product-list");
-
-// const listing = new ProductList(category, dataSource, element);
-
-// loadHeaderFooter();
-// setTimeout(updateCartCount, 100);
-
-// listing.init();
-
 import { loadHeaderFooter, updateCartCount, getParam } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
@@ -33,4 +12,14 @@ const listing = new ProductList(category, dataSource, element);
 
 document.querySelector("#category-title").textContent = category;
 
-listing.init();
+listing.init().then(() => {
+  // Update breadcrumb with correct product count after products are loaded
+  const productList = document.querySelector('.product-list');
+  const productCount = productList ? productList.children.length : 0;
+  
+  const breadcrumb = document.querySelector('.breadcrumb');
+  if (breadcrumb) {
+    const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1);
+    breadcrumb.innerHTML = `<a href="../index.html">Home</a> > ${formattedCategory} (${productCount} items)`;
+  }
+});
